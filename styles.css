@@ -24,6 +24,9 @@ body {
     margin-top: 40px;
     cursor: default;
 
+    border-collapse:separate;
+    border-spacing: 15px;
+
     background: rgb(130,206,255);
     background: -moz-linear-gradient(90deg, rgba(130,206,255,1) 0%, rgba(195,231,255,1) 100%);
     background: -webkit-linear-gradient(90deg, rgba(130,206,255,1) 0%, rgba(195,231,255,1) 100%);
@@ -41,21 +44,8 @@ th {
 
 .claim {
     cursor: pointer;
-    border: 0px solid black;
+    border: 1px solid black;
     border-radius: 15px;
-
-    background: rgb(182,255,122);
-    background: -moz-linear-gradient(90deg, rgba(182,255,122,1) 0%, rgba(151,255,64,1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(182,255,122,1) 0%, rgba(151,255,64,1) 100%);
-    background: linear-gradient(90deg, rgba(182,255,122,1) 0%, rgba(151,255,64,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b6ff7a",endColorstr="#97ff40",GradientType=1);
-}
-
-.claim-div {
-    width: 50%;
-    padding: 4px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .first-tr {
