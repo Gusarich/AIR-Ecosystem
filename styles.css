@@ -1,6 +1,8 @@
 body {
     text-align: center;
 
+    font-family: 'Ubuntu', sans-serif;
+
     background: rgb(180,135,255);
     background: -moz-linear-gradient(90deg, rgba(180,135,255,1) 0%, rgba(219,197,255,1) 100%);
     background: -webkit-linear-gradient(90deg, rgba(180,135,255,1) 0%, rgba(219,197,255,1) 100%);
@@ -9,7 +11,7 @@ body {
 }
 
 .f20 {
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .staking-list {
