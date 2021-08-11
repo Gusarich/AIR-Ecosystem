@@ -10,7 +10,7 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b487ff",endColorstr="#dbc5ff",GradientType=1);
 }
 
-.f20 {
+.f16 {
     font-size: 16px;
 }
 
@@ -54,4 +54,19 @@ th {
 
 .first-tr {
     pointer-events: none;
+}
+
+@media only screen and (max-width: 500px) {
+    .desktop {
+          display: none;
+    }
+
+    .staking-list {
+        font-size: 50px;
+        width: 100%;
+    }
+
+    .f16 {
+        font-size: 32px;
+    }
 }
