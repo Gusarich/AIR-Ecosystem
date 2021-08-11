@@ -55,6 +55,8 @@ th {
     border: 1px solid black;
     border-radius: 15px;
 
+    font-size: 21px;
+
     background: rgb(151,255,64);
     background: -moz-linear-gradient(90deg, rgba(151,255,64,1) 0%, rgba(182,255,122,1) 100%);
     background: -webkit-linear-gradient(90deg, rgba(151,255,64,1) 0%, rgba(182,255,122,1) 100%);
@@ -72,7 +74,7 @@ th {
     }
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1060px) {
     .staking-list {
         width: 80%;
     }
@@ -92,7 +94,7 @@ th {
 
 @media only screen and (max-width: 890px) {
     .staking-list {
-        width: 97%;
+        width: 100%;
     }
 }
 
@@ -102,7 +104,7 @@ th {
     }
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 800px) {
     .desktop {
           display: none;
     }
@@ -118,8 +120,12 @@ th {
     }
 }
 
-@media only screen and (max-width: 385px) {
+@media only screen and (max-width: 440px) {
     .staking-list {
+        font-size: 18px;
+    }
+
+    .claim {
         font-size: 18px;
     }
 
@@ -132,8 +138,22 @@ th {
     }
 }
 
-@media only screen and (max-width: 340px) {
+@media only screen and (max-width: 390px) {
     .staking-list {
         font-size: 16px;
+    }
+
+    .claim {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .staking-list {
+        font-size: 14px;
+    }
+
+    .claim {
+        font-size: 14px;
     }
 }
