@@ -5,6 +5,8 @@ body {
 
     font-family: 'Ubuntu', sans-serif;
 
+    color: #111e26;
+
     background: rgb(180,135,255);
     background: -moz-linear-gradient(90deg, rgba(180,135,255,1) 0%, rgba(219,197,255,1) 100%);
     background: -webkit-linear-gradient(90deg, rgba(180,135,255,1) 0%, rgba(219,197,255,1) 100%);
@@ -77,6 +79,96 @@ th {
 .first-tr {
     pointer-events: none;
 }
+
+.swap {
+    margin-top: 70px;
+}
+
+.amount {
+    width: 100%;
+    font-size: 16px;
+}
+
+.amount, .amount:focus, .amount:active {
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.amount::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.amount::placeholder {
+    color: #DBC5FF;
+    font-size: 13px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "container-text . container-balance"
+        "container-input container-input container-currency";
+
+    width: 30%;
+
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+
+    padding: 20px;
+
+    border: 1px solid black;
+    border-radius: 30px;
+
+    background: rgb(147,82,255);
+    background: -moz-linear-gradient(90deg, rgba(147,82,255,1) 0%, rgba(180,135,255,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(147,82,255,1) 0%, rgba(180,135,255,1) 100%);
+    background: linear-gradient(90deg, rgba(147,82,255,1) 0%, rgba(180,135,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9352ff",endColorstr="#b487ff",GradientType=1);
+}
+
+.container-text {
+    grid-area: container-text;
+    text-align: left;
+}
+
+.container-input {
+    grid-area: container-input;
+    text-align: left;
+}
+
+.container-balance {
+    grid-area: container-balance;
+    text-align: right;
+}
+
+.container-currency {
+    grid-area: container-currency;
+    text-align: right;
+}
+
+
+.arrow-bottom-2 {
+    margin: 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transform: rotate(90deg);
+    fill: #DBC5FF;
+    stroke-width: .6;
+    stroke: #DBC5FF;
+    transition: fill 0.25s ease-out;
+}
+
+.arrow-bottom-2:hover {
+    fill: #9352FF;
+}
+
 
 @media only screen and (max-width: 1200px) {
     .staking-list {
