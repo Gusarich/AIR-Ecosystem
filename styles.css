@@ -74,25 +74,25 @@ th {
     }
 }
 
-@media only screen and (max-width: 1060px) {
+@media only screen and (max-width: 1100px) {
     .staking-list {
         width: 80%;
     }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1040px) {
     .staking-list {
         width: 85%;
     }
 }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 975px) {
     .staking-list {
         width: 90%;
     }
 }
 
-@media only screen and (max-width: 890px) {
+@media only screen and (max-width: 925px) {
     .staking-list {
         width: 100%;
     }
