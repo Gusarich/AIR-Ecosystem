@@ -106,15 +106,20 @@ th {
     .staking-list {
         width: 100%;
     }
+}
 
-    /*
-
+@media only screen and (max-width: 385px) {
     .staking-list {
-        font-size: 50px;
-        width: 100%;
+        font-size: 18px;
     }
 
     .f16 {
-        font-size: 32px;
-    }*/
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    .staking-list {
+        font-size: 16px;
+    }
 }
