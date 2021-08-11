@@ -1,6 +1,8 @@
 fetch('https://raw.githubusercontent.com/Gusarich/AIR-Ecosystem/main/data.json')
 .then(r => r.json())
 .then(r => {
+    window.pools = r
+
     let table = document.getElementsByClassName('staking-list')[0]
 
     for (let i = 0; i < r.length; i += 1) {
@@ -24,6 +26,11 @@ fetch('https://raw.githubusercontent.com/Gusarich/AIR-Ecosystem/main/data.json')
         tr.appendChild(td2)
         tr.appendChild(td3)
         tr.appendChild(td4)
+
+        tr.onclick = () => {
+            console.log(i)
+            document.location.href = '/swap/' + r[i]['TOKEN_1'] + '-' + r[i]['TOKEN_2']
+        }
 
         table.appendChild(tr)
     }
