@@ -1,6 +1,8 @@
 body {
     text-align: center;
 
+    overflow: overlay;
+
     font-family: 'Ubuntu', sans-serif;
 
     background: rgb(180,135,255);
@@ -8,6 +10,14 @@ body {
     background: -webkit-linear-gradient(90deg, rgba(180,135,255,1) 0%, rgba(219,197,255,1) 100%);
     background: linear-gradient(90deg, rgba(180,135,255,1) 0%, rgba(219,197,255,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b487ff",endColorstr="#dbc5ff",GradientType=1);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9352FF;
 }
 
 .f16 {
