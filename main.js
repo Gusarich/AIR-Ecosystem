@@ -29,7 +29,7 @@ fetch('https://raw.githubusercontent.com/Gusarich/AIR-Ecosystem/main/data.json')
 
         tr.onclick = () => {
             console.log(i)
-            document.location.href = '/swap/' + r[i]['TOKEN_1'] + '-' + r[i]['TOKEN_2']
+            document.location.href = '/AIR-Ecosystem/swap/' + r[i]['TOKEN_1'] + '-' + r[i]['TOKEN_2']
         }
 
         table.appendChild(tr)
