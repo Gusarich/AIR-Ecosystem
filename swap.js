@@ -17,11 +17,19 @@ function setInputFilter(textbox, inputFilter) {
 
 document.addEventListener('DOMContentLoaded', () => {
     let url = document.URL
-    let get = url.split('?')[1].split('&')
     let params = {}
-    for (let i = 0; i < get.length; i += 1) {
-        let param = get[i].split('=')
-        params[param[0]] = param[1]
+    try {
+        let get = url.split('?')[1].split('&')
+        for (let i = 0; i < get.length; i += 1) {
+            let param = get[i].split('=')
+            params[param[0]] = param[1]
+        }
+        if (params['from'] == undefined || params['to'] == undefined) {
+            window.location.href = url + '?from=MDUST&to=AIR'
+        }
+    }
+    catch {
+        window.location.href = url + '?from=MDUST&to=AIR'
     }
 
     document.getElementById('from-currency').innerText = params['from']
