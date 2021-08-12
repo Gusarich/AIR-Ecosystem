@@ -1,6 +1,7 @@
 fetch('https://raw.githubusercontent.com/Gusarich/AIR-Ecosystem/main/data.json')
 .then(r => r.json())
 .then(r => {
+    r = r['pools']
     window.pools = r
 
     let table = document.getElementsByClassName('staking-list')[0]

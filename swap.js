@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('from-currency').innerText = params['from']
     document.getElementById('to-currency').innerText = params['to']
 
+    window.swapFrom = params['from']
+    window.swapTo = params['to']
+
     setInputFilter(document.getElementById('input-1'), function(value) {
         return /(^\d+[.,]?\d*$)|(^$)/.test(value)
     })
