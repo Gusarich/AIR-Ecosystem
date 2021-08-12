@@ -3,13 +3,19 @@ function reloadAccount(account) {
     .then(r => r.json())
     .then(r => {
         r = r['tokens']
-        tokenFrom = r[window.swapFrom]
-        tokenTo = r[window.swapTo]
+        let tokenFrom = r[window.swapFrom]
+        let tokenTo = r[window.swapTo]
 
         fetch('https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=' + tokenFrom + '&address=' + account + '&tag=latest')
         .then(r => r.json())
         .then(r => {
-            console.log(r)
+            let balanceFrom = r['result'] / 18
+            fetch('https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=' + tokenTo + '&address=' + account + '&tag=latest')
+            .then(r => r.json())
+            .then(r => {
+                let balanceTo = r['result'] / 18
+                console.log(balanceFrom, balanceTo)
+            })
         })
     })
     //
