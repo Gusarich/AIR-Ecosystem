@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
         params[param[0]] = param[1]
     }
 
+    document.getElementById('from-currency').innerText = params['from']
+    document.getElementById('to-currency').innerText = params['to']
+
     setInputFilter(document.getElementById('input-1'), function(value) {
         return /(^\d+[.,]?\d*$)|(^$)/.test(value)
     })
