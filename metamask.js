@@ -5,9 +5,14 @@ function reloadAccount(account) {
         r = r['tokens']
         tokenFrom = r[window.swapFrom]
         tokenTo = r[window.swapTo]
-        console.log(tokenFrom, tokenTo)
+
+        fetch('https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=' + tokenFrom + '&address=' + account + '&tag=latest')
+        .then(r => r.json())
+        .then(r => {
+            console.log(r)
+        })
     })
-    //'https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xe9e7cea3dedca5984780bafc599bd69add087d56&address=' + account + '&tag=latest'
+    //
 }
 
 async function getAccount () {
@@ -17,17 +22,19 @@ async function getAccount () {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const ethereumButton = document.querySelector('.connect-wallet')
-    ethereumButton.addEventListener('click', () => {
-        getAccount()
-    })
-
     if (typeof window.ethereum == 'undefined') {
         alert("I can't find your BSC wallet :(\nOpen this website with Metamask or Trust wallet")
         return
     }
 
-    ethereum.request({ method: 'eth_requestAccounts' }).then(accounts => {
-        console.log(accounts)
+    const ethereumButton = document.querySelector('.connect-wallet')
+    ethereumButton.addEventListener('click', () => {
+        getAccount()
     })
+
+    ethereum.on('accountsChanged', function (accounts) {
+        reloadAccount(accounts[0])
+    })
+
+    getAccount()
 })
