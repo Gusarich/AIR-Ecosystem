@@ -1,32 +1,14 @@
-function reloadAccount(account) {
-    fetch('https://raw.githubusercontent.com/Gusarich/AIR-Ecosystem/main/data.json')
-    .then(r => r.json())
-    .then(r => {
-        r = r['tokens']
-        let tokenFrom = r[window.swapFrom]
-        let tokenTo = r[window.swapTo]
-
-        fetch('https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=' + tokenFrom + '&address=' + account + '&tag=latest')
-        .then(r => r.json())
-        .then(r => {
-            let balanceFrom = r['result'] / 18
-            setTimeout(() => {
-                fetch('https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=' + tokenTo + '&address=' + account + '&tag=latest')
-                .then(r => r.json())
-                .then(r => {
-                    let balanceTo = r['result'] / 18
-                    console.log(balanceFrom, balanceTo)
-                })
-            }, 250)
-        })
-    })
-    //
-}
-
 async function getAccount () {
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
     const account = accounts[0]
+
+    let wallet = document.querySelector('.wallet')
+    wallet.innerText = 'Connected: ' + account.slice(0, 4) + '...' + account.slice(-4)
+
     reloadAccount(account)
+    setInterval(() => {
+        reloadAccount(account)
+    }, 2000)
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return
     }
 
-    const ethereumButton = document.querySelector('.connect-wallet')
+    const ethereumButton = document.querySelector('.wallet')
     ethereumButton.addEventListener('click', () => {
         getAccount()
     })

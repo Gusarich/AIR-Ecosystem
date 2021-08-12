@@ -15,6 +15,38 @@ function setInputFilter(textbox, inputFilter) {
   });
 }
 
+function normalizeNumber(n) {
+    if (n < 0.000001) return 0
+    if (n < 1000000) return Number(n.toPrecision(6))
+    return Math.ceil(n)
+}
+
+function reloadAccount(account) {
+    fetch('https://raw.githubusercontent.com/Gusarich/AIR-Ecosystem/main/data.json')
+    .then(r => r.json())
+    .then(r => {
+        r = r['tokens']
+        let tokenFrom = r[window.swapFrom]
+        let tokenTo = r[window.swapTo]
+
+        fetch('https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=' + tokenFrom + '&address=' + account + '&tag=latest&apikey=Y1I94DQ6BBW9GCYZ2NBB4BN36GAS1HXH24')
+        .then(r => r.json())
+        .then(r => {
+            let balanceFrom = normalizeNumber(r['result'] / 10 ** 18)
+            setTimeout(() => {
+                fetch('https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=' + tokenTo + '&address=' + account + '&tag=latest&apikey=Y1I94DQ6BBW9GCYZ2NBB4BN36GAS1HXH24')
+                .then(r => r.json())
+                .then(r => {
+                    let balanceTo = normalizeNumber(r['result'] / 10 ** 18)
+
+                    document.getElementById('from-balance').innerText = balanceFrom
+                    document.getElementById('to-balance').innerText = balanceTo
+                })
+            }, 250)
+        })
+    })
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     let url = document.URL
     let params = {}
