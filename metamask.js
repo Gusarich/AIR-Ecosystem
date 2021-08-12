@@ -10,12 +10,14 @@ function reloadAccount(account) {
         .then(r => r.json())
         .then(r => {
             let balanceFrom = r['result'] / 18
-            fetch('https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=' + tokenTo + '&address=' + account + '&tag=latest')
-            .then(r => r.json())
-            .then(r => {
-                let balanceTo = r['result'] / 18
-                console.log(balanceFrom, balanceTo)
-            })
+            setTimeout(() => {
+                fetch('https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=' + tokenTo + '&address=' + account + '&tag=latest')
+                .then(r => r.json())
+                .then(r => {
+                    let balanceTo = r['result'] / 18
+                    console.log(balanceFrom, balanceTo)
+                })
+            }, 250)
         })
     })
     //
