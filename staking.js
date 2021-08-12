@@ -22,15 +22,14 @@ fetch('https://raw.githubusercontent.com/Gusarich/AIR-Ecosystem/main/data.json')
         td3.innerHTML = '0 <span class="f16">' + r[i]['TOKEN_1'] + '-' + r[i]['TOKEN_2'] + '</span>'
         td4.innerHTML = '0 <span class="f16">' + r[i]['TOKEN_2'] + '</span>'
 
+        td1.onclick = () => {
+            document.location.href = '/AIR-Ecosystem/swap/' + r[i]['TOKEN_1'] + '-' + r[i]['TOKEN_2']
+        }
+
         tr.appendChild(td1)
         tr.appendChild(td2)
         tr.appendChild(td3)
         tr.appendChild(td4)
-
-        tr.onclick = () => {
-            console.log(i)
-            document.location.href = '/AIR-Ecosystem/swap/' + r[i]['TOKEN_1'] + '-' + r[i]['TOKEN_2']
-        }
 
         table.appendChild(tr)
     }
