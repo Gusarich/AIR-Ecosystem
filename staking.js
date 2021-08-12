@@ -23,7 +23,7 @@ fetch('https://raw.githubusercontent.com/Gusarich/AIR-Ecosystem/main/data.json')
         td4.innerHTML = '0 <span class="f16">' + r[i]['TOKEN_2'] + '</span>'
 
         td1.onclick = () => {
-            document.location.href = '/AIR-Ecosystem/swap/' + r[i]['TOKEN_1'] + '-' + r[i]['TOKEN_2']
+            document.location.href = '/AIR-Ecosystem/swap?from=' + r[i]['TOKEN_1'] + '&to=' + r[i]['TOKEN_2']
         }
 
         tr.appendChild(td1)

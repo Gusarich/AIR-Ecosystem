@@ -16,6 +16,8 @@ function setInputFilter(textbox, inputFilter) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log(window)
+
     setInputFilter(document.getElementById('input-1'), function(value) {
         return /(^\d+[.,]?\d*$)|(^$)/.test(value)
     })
