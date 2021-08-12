@@ -29,3 +29,26 @@ body {
 .f20 {
     font-size: 20px;
 }
+
+.connect-wallet {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+
+    background: rgb(182,255,122);
+    background: -moz-linear-gradient(90deg, rgba(182,255,122,1) 0%, rgba(220,255,191,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(182,255,122,1) 0%, rgba(220,255,191,1) 100%);
+    background: linear-gradient(90deg, rgba(182,255,122,1) 0%, rgba(220,255,191,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b6ff7a",endColorstr="#dcffbf",GradientType=1);
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        margin-top: 80px;
+    }
+}
