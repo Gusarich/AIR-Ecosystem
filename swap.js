@@ -16,7 +16,13 @@ function setInputFilter(textbox, inputFilter) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log(window)
+    let url = document.URL
+    let get = url.split('?')[1].split('&')
+    let params = {}
+    for (let i = 0; i < get.length; i += 1) {
+        let param = get[i].split('=')
+        params[param[0]] = param[1]
+    }
 
     setInputFilter(document.getElementById('input-1'), function(value) {
         return /(^\d+[.,]?\d*$)|(^$)/.test(value)
