@@ -47,6 +47,152 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b6ff7a",endColorstr="#dcffbf",GradientType=1);
 }
 
+.staking-list {
+    font-size: 25px;
+    width: 70%;
+    border: 0 solid black;
+    border-radius: 30px;
+    background-color: white;
+    padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    cursor: default;
+
+    border-collapse: separate;
+    border-spacing: 15px;
+
+    table-layout: fixed;
+
+    background: rgb(130,206,255);
+    background: -moz-linear-gradient(90deg, rgba(130,206,255,1) 0%, rgba(195,231,255,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(130,206,255,1) 0%, rgba(195,231,255,1) 100%);
+    background: linear-gradient(90deg, rgba(130,206,255,1) 0%, rgba(195,231,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#82ceff",endColorstr="#c3e7ff",GradientType=1);
+}
+
+td {
+    padding: 10px;
+}
+
+th {
+    padding: 10px;
+}
+
+.claim {
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 15px;
+
+    font-size: 21px;
+
+    background: rgb(151,255,64);
+    background: -moz-linear-gradient(90deg, rgba(151,255,64,1) 0%, rgba(182,255,122,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(151,255,64,1) 0%, rgba(182,255,122,1) 100%);
+    background: linear-gradient(90deg, rgba(151,255,64,1) 0%, rgba(182,255,122,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#97ff40",endColorstr="#b6ff7a",GradientType=1);
+}
+
+.first-tr {
+    pointer-events: none;
+}
+
+@media only screen and (max-width: 1200px) {
+    .staking-list {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .staking-list {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 1040px) {
+    .staking-list {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 975px) {
+    .staking-list {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 925px) {
+    .staking-list {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 840px) {
+    .staking-list {
+        font-size: 22px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .desktop {
+          display: none;
+    }
+
+    .staking-list {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .tablet {
+          display: none;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .f20 {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .staking-list {
+        font-size: 18px;
+    }
+
+    .claim {
+        font-size: 18px;
+    }
+
+    .f16 {
+        font-size: 13px;
+    }
+
+    .f20 {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    .staking-list {
+        font-size: 16px;
+    }
+
+    .claim {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .staking-list {
+        font-size: 14px;
+    }
+
+    .claim {
+        font-size: 14px;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     h1 {
         margin-top: 80px;
