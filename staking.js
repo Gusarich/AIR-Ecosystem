@@ -1,8 +1,9 @@
 fetch('https://raw.githubusercontent.com/Gusarich/AIR-Ecosystem/main/data.json')
 .then(r => r.json())
 .then(r => {
-    r = r['pools']
-    window.pools = r
+    window.tokens = r['tokens']
+    window.contract = r['contract']
+    r = r['tokens']
 
     let table = document.getElementsByClassName('staking-list')[0]
 
@@ -17,14 +18,14 @@ fetch('https://raw.githubusercontent.com/Gusarich/AIR-Ecosystem/main/data.json')
         td3.className = 'tablet'
         td4.className = 'desktop'
 
-        td1.appendChild(document.createTextNode(r[i]['TOKEN_1'] + ' / ' + r[i]['TOKEN_2']))
-        td2.appendChild(document.createTextNode(r[i]['APY'] + '%'))
+        td1.appendChild(document.createTextNode(r[i][0]))
+        td2.appendChild(document.createTextNode(r[i][2] + '%'))
 
-        td3.innerHTML = '0 <span class="f16">' + r[i]['TOKEN_1'] + '-' + r[i]['TOKEN_2'] + '</span>'
-        td4.innerHTML = '0 <span class="f16">' + r[i]['TOKEN_2'] + '</span>'
+        td3.innerHTML = '0 <span class="f16">' + r[i][0] + '</span>'
+        td4.innerHTML = '0 <span class="f16">AIR</span>'
 
         td1.onclick = () => {
-            document.location.href = '/AIR-Ecosystem/swap?from=' + r[i]['TOKEN_1'] + '&to=' + r[i]['TOKEN_2']
+            // TODO
         }
 
         tr.appendChild(td1)
