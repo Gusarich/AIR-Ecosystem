@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ]
 
-    window.web3Contract = new window.web3_.eth.Contract(abi, '0x2fDc0abC687f729380ce075548537cc447DF59C4')
+    window.web3Contract = new window.web3_.eth.Contract(abi, window.contract)
 
     if (typeof window.ethereum == 'undefined') {
         alert("I can't find your BSC wallet :(\nOpen this website with Metamask or Trust wallet")
