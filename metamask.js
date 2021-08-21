@@ -30,21 +30,7 @@ ethereum.on('accountsChanged', function (accounts) {
 })
 
 document.addEventListener('DOMContentLoaded', () => {
-    window.web3_ = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
-
-    const abi = [
-        {
-            'type': 'function',
-            'name': 'claimableOf',
-            'constant': true,
-            'payable': false,
-            'stateMutability': 'view',
-            'inputs': [{'name':'account','type':'address'}, {'name':'token','type':'address'}],
-            'outputs': [{'name':'','type':'uint256'}]
-        }
-    ]
-
-    window.web3Contract = new window.web3_.eth.Contract(abi, window.contract)
+    window.web3_ = new Web3('https://bsc-dataseed1.binance.org:443')
 
     if (typeof window.ethereum == 'undefined') {
         alert("I can't find your BSC wallet :(\nOpen this website with Metamask or Trust wallet")
@@ -60,5 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
         reloadAccount(accounts[0])
     })
 
-    getAccount()
+    let interval = setInterval(() => {
+        console.log('interval!', window.abi)
+        if (window.abi != undefined) {
+            clearInterval(interval)
+            getAccount()
+        }
+    }, 200)
 })

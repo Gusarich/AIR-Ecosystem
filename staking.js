@@ -4,8 +4,8 @@ function normalizeNumber (n) {
     return Math.ceil(n)
 }
 
-async function claimableOf (account, token) {
-    return await window.web3Contract.methods.claimableOf(account, token).call()
+async function callView (view, ...args) {
+    return await window.web3Contract.methods[view](...args).call()
 }
 
 async function reloadAccount (account) {
@@ -14,17 +14,11 @@ async function reloadAccount (account) {
     for (let i = 0; i < window.tokens.length; i += 1) {
         let yourStake = table.getElementsByTagName('td')[2]
         let yourProfit = table.getElementsByTagName('td')[3]
-        fetch('https://api-testnet.bscscan.com/api?module=account&action=tokenbalance&contractaddress=' + window.tokens[i][1] + '&address=' + account + '&tag=latest')
-        .then(r => r.json())
-        .then(async r => {
-            if (r.status == '1') {
-                let balance = normalizeNumber(r.result / 10 ** 18)
-                yourStake.innerHTML = balance + ' <span class="f16">' + window.tokens[i][0] + '</span>'
-                let claimable = await claimableOf(account, window.tokens[i][1])
-                yourProfit.innerHTML = claimable + ' <span class="f16">' + window.tokens[i][0] + '</span>'
-                console.log(claimable)
-            }
-        })
+
+        let stake = normalizeNumber((await callView('stakeOf', account, window.tokens[i][1])) / 10 ** 18)
+        yourStake.innerHTML = stake + ' <span class="f16">' + window.tokens[i][0] + '</span>'
+        let claimable = normalizeNumber((await callView('claimableOf', account, window.tokens[i][1])) / 10 ** 18)
+        yourProfit.innerHTML = claimable + ' <span class="f16" style="white-space:nowrap;">' + window.tokens[i][0] + '</span>'
     }
 }
 
@@ -33,6 +27,21 @@ fetch('https://raw.githubusercontent.com/Gusarich/AIR-Ecosystem/main/data.json')
 .then(r => {
     window.tokens = r['tokens']
     window.contract = r['contract']
+
+    const getAbi = () => {
+        fetch('https://api.bscscan.com/api?module=contract&action=getabi&address=' + window.contract)
+        .then(r => r.json())
+        .then(r => {
+            if (r.status != 1) getAbi()
+            else {
+                window.abi = JSON.parse(r.result)
+                window.web3Contract = new window.web3_.eth.Contract(window.abi, window.contract)
+            }
+        })
+    }
+
+    getAbi()
+
     r = r['tokens']
 
     let table = document.getElementsByClassName('staking-list')[0]
