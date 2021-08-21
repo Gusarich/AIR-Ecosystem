@@ -64,7 +64,7 @@ fetch('https://raw.githubusercontent.com/Gusarich/AIR-Ecosystem/main/data.json')
         td4.innerHTML = '0 <span class="f16">AIR</span>'
 
         td1.onclick = () => {
-            // TODO
+            window.modal.style.display = 'block'
         }
 
         tr.appendChild(td1)
@@ -73,5 +73,16 @@ fetch('https://raw.githubusercontent.com/Gusarich/AIR-Ecosystem/main/data.json')
         tr.appendChild(td4)
 
         table.appendChild(tr)
+    }
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.modal = document.getElementById('modal')
+    var span = document.getElementsByClassName('close')[0];
+    span.onclick = () => {
+        window.modal.style.display = 'none'
+    }
+    window.onclick = (event) => {
+        if (event.target == modal) window.modal.style.display = 'none'
     }
 })
